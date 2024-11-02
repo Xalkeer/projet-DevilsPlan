@@ -8,7 +8,8 @@
 
 
 class player {
-
+    // Position de départ
+    // Piece qu'il a pris
 };
 
 

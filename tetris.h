@@ -8,7 +8,9 @@
 
 
 class tetris {
-
+private :
+   // liste [7][6 largeur]
+   // PlayerValue
 };
 
 
