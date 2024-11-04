@@ -12,11 +12,12 @@ int main() {
     a.displayGrid();
 
     tetris test(10);
-    test.loadJson("Tetris03");
-
-
-
-
+    std::cout << "Pièce de base" << std::endl;
+    test.loadJson("Tetris20");
+    std::cout <<"Rotate 90"<< std::endl;
+    test.displayPiece(test.getRotatePiece(test.getPieceTetrisEasy("Tetris20")));
+    std::cout <<"Flip"<< std::endl;
+    test.displayPiece(test.getFlipPiece(test.getPieceTetrisEasy("Tetris20")));
 
     return 0;
 }

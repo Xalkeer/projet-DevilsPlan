@@ -23,10 +23,12 @@ void board::displayGrid() const {
     }
 }
 void board::Pieceplace(int x, int y) {
-    std::vector<std::vector<int>> piece ;
-    tetris test(10);
-    test.loadJson("Tetris03") ;
-    piece = test.getPieceTetris(const nlohmann::json &pieces, const std::string &nom_piece)
+    // std::vector<std::vector<int>> piece ;
+    // tetris test(10);
+    // test.loadJson("Tetris03") ;
+    // piece = test.getPieceTetrisEasy("Tetris03") ;
+    // board::grid[x][y] = piece [0][0] ;
+    std::cout << "test" << std::endl;
 
 
 

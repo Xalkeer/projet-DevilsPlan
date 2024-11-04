@@ -20,9 +20,13 @@ public :
 
    std::vector<std::vector<int>> getPieceTetrisEasy(const std::string &nom_piece);
 
-   void testouille();
 
    void loadJson(std::string nom_piece);
+
+   std::vector<std::vector<int>> getRotatePiece(const std::vector<std::vector<int>> &piece);
+
+   std::vector<std::vector<int>> getFlipPiece(const std::vector<std::vector<int>> &piece);
+
    // void rotatePiece();
    // void FlipPiece();
 };

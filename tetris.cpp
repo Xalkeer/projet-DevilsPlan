@@ -101,5 +101,26 @@ void tetris::loadJson(string nom_piece) {
     f.close();
 }
 
+std::vector<std::vector<int>> tetris::getRotatePiece(const std::vector<std::vector<int>>& piece) {
+    std::vector<std::vector<int>> newPiece;
+    for (int i = 0; i < piece[0].size(); ++i) {
+        std::vector<int> row;
+        for (int j = piece.size() - 1; j >= 0; --j) {
+            row.push_back(piece[j][i]);
+        }
+        newPiece.push_back(row);
+    }
+    return newPiece;
+}
 
-
+std::vector<std::vector<int>> tetris::getFlipPiece(const std::vector<std::vector<int>>& piece) {
+    std::vector<std::vector<int>> newPiece;
+    for (int i = piece.size() - 1; i >= 0; --i) {
+        std::vector<int> row;
+        for (int j = 0; j < piece[i].size(); ++j) {
+            row.push_back(piece[i][j]);
+        }
+        newPiece.push_back(row);
+    }
+    return newPiece;
+}
