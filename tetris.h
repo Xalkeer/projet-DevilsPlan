@@ -4,7 +4,7 @@
 
 #ifndef TETRIS_H
 #define TETRIS_H
-
+#include "json.hpp"
 
 
 class tetris {
@@ -13,6 +13,12 @@ private:
 
 public :
    tetris(int PlayerValue);
+
+   void displayPiece(const std::vector<std::vector<int>> &piece);
+
+   std::vector<std::vector<int>> getPieceTetris(const nlohmann::json &pieces, const std::string &nom_piece);
+
+   std::vector<std::vector<int>> getPieceTetrisEasy(const std::string &nom_piece);
 
    void testouille();
 

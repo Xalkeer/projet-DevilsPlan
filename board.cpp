@@ -3,6 +3,8 @@
 #include <ostream>
 #include "square.h"
 #include <vector>
+#include "tetris.h"
+
 
 board::board(int nbPlayers) : nbPlayers(nbPlayers) {
     initializeGrid();
@@ -19,4 +21,13 @@ void board::displayGrid() const {
         }
         std::cout << std::endl;
     }
+}
+void board::Pieceplace(int x, int y) {
+    std::vector<std::vector<int>> piece ;
+    tetris test(10);
+    test.loadJson("Tetris03") ;
+    piece = test.getPieceTetris(const nlohmann::json &pieces, const std::string &nom_piece)
+
+
+
 }
