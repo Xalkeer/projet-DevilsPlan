@@ -5,13 +5,20 @@
 #ifndef TETRIS_H
 #define TETRIS_H
 
-#include "json.hpp"
+
 
 class tetris {
+private:
+   int PlayerValue{};
+
 public :
-   // liste [7][6 largeur]
-   // PlayerValue
-   void printtest();
+   tetris(int PlayerValue);
+
+   void testouille();
+
+   void loadJson(std::string nom_piece);
+   // void rotatePiece();
+   // void FlipPiece();
 };
 
 

@@ -1,8 +1,6 @@
 #include "board.h"
-
 #include <iostream>
 #include <ostream>
-
 #include "square.h"
 #include <vector>
 

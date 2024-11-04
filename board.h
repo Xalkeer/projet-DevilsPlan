@@ -10,4 +10,5 @@ public:
     board(int nbPlayers);
     void initializeGrid();
     void displayGrid() const;
+    void Pieceplace(int x, int y, );
 };
