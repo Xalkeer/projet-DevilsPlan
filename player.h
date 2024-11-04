@@ -8,6 +8,8 @@
 
 
 class player {
+    // Nom
+    // Couleur
     // Position de départ
     // Piece qu'il a pris
 };

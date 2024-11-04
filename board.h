@@ -1,16 +1,13 @@
-//
-// Created by busev on 02/11/2024.
-//
-
-#ifndef BOARD_H
-#define BOARD_H
-
-
+#include <vector>
+#include "square.h"
 
 class board {
+private:
+    int nbPlayers;
+    std::vector<std::vector<square>> grid;
 
+public:
+    board(int nbPlayers);
+    void initializeGrid();
+    void displayGrid() const;
 };
-
-
-
-#endif //BOARD_H

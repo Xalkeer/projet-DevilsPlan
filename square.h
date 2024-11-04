@@ -1,18 +1,18 @@
-//
-// Created by busev on 02/11/2024.
-//
-
+// square.h
 #ifndef SQUARE_H
 #define SQUARE_H
 
-
-
 class square {
+private:
     int value = 0;
-// 0 = Vide / 1 = Joueur1 / 2 = Joueur2 / 3 = Joueur3 / 4 = Joueur4 / 5 = Joueur5 / 6 = Joueur6 / 7 = Joueur7 / 8 = Joueur8 / 9 = Joueur9 / 10-12 = bonus
 
+public:
+    square() = default;
+    explicit square(int val) : value(val) {}
+
+    int getValue() const {
+        return value;
+    }
 };
 
-
-
-#endif //SQUARE_H
+#endif // SQUARE_H

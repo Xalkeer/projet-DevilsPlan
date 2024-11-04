@@ -1,5 +1,14 @@
-//
-// Created by busev on 02/11/2024.
-//
+#include <filesystem>
+#include <fstream>
+#include <iostream>
 
 #include "tetris.h"
+#include "json.hpp"
+
+using json = nlohmann::json;
+using namespace std;
+
+void tetris::printtest() {
+
+}
+

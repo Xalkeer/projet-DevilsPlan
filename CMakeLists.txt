@@ -12,4 +12,6 @@ add_executable(Projet main.cpp
         tetris.h
         display.h
         display.cpp
-        tetris.cpp)
+        tetris.cpp
+        json.hpp
+        square.cpp)

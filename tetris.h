@@ -5,12 +5,13 @@
 #ifndef TETRIS_H
 #define TETRIS_H
 
-
+#include "json.hpp"
 
 class tetris {
-private :
+public :
    // liste [7][6 largeur]
    // PlayerValue
+   void printtest();
 };
 
 
