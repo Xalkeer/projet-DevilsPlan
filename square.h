@@ -10,9 +10,10 @@ public:
     square() = default;
     explicit square(int val) : value(val) {}
 
-    int getValue() const {
-        return value;
-    }
+
+    int GetValue() const;
+
+    void SetValue(int val);
 };
 
 #endif // SQUARE_H

@@ -8,8 +8,8 @@ using namespace std;
 
 
 int main() {
-    board a(5);
-    a.displayGrid();
+    board a(2);
+    // a.displayGrid();
 
     tetris test(10);
     std::cout << "Pièce de base" << std::endl;
@@ -18,6 +18,10 @@ int main() {
     test.displayPiece(test.getRotatePiece(test.getPieceTetrisEasy("Tetris20")));
     std::cout <<"Flip"<< std::endl;
     test.displayPiece(test.getFlipPiece(test.getPieceTetrisEasy("Tetris20")));
+    std::cout <<"place"<< std::endl;
+    a.piecePlace(8,8,test.getPieceTetrisEasy("Tetris20"));
+    a.displayGrid();
+
 
     return 0;
 }

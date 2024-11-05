@@ -11,5 +11,11 @@ public:
     board(int nbPlayers);
     void initializeGrid();
     void displayGrid() const;
-    void Pieceplace(int x, int y);
+
+    bool boardVerif(int x, int y, std::vector<std::vector<int>> piece);
+
+    void piecePlace(int x, int y,  std::vector<std::vector<int>> piece);
+
+    // void SetValue(int val);
+    // void GetValue() const;
 };

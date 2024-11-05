@@ -39,7 +39,7 @@ std::vector<std::vector<int>> tetris::getPieceTetris(const json& pieces, const s
     return piece;
 }
 
-std::vector<std::vector<int>> tetris::getPieceTetrisEasy(const std::string& nom_piece) {
+std::vector<std::vector<int>> tetris::getPieceTetrisEasy(const std::string &nom_piece) {
     std::ifstream f("../tetrisFile.json");
     if (!f) {
         std::cerr << "Erreur : Impossible d'ouvrir le fichier JSON\n";
