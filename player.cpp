@@ -3,6 +3,8 @@
 //
 
 #include "player.h"
+#include <iostream>
+
 
 // Constructeur
 player::player(const std::string& name, const std::string& color, int x, int y)

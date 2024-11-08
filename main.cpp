@@ -19,8 +19,10 @@ int main() {
     std::cout <<"Flip"<< std::endl;
     test.displayPiece(test.getFlipPiece(test.getPieceTetrisEasy("Tetris20")));
     std::cout <<"place"<< std::endl;
-    a.piecePlace(8,8,test.getPieceTetrisEasy("Tetris20"));
+    // a.piecePlace(8,8,test.getPieceTetrisEasy("Tetris20"));
+    // a.initializePlayerFirstSquare(2,2,2);
     a.displayGrid();
+    test.getListOfPiece();
 
 
     return 0;

@@ -18,6 +18,8 @@ public :
 
    std::vector<std::vector<int>> getPieceTetris(const nlohmann::json &pieces, const std::string &nom_piece);
 
+void getListOfPiece();
+
    std::vector<std::vector<int>> getPieceTetrisEasy(const std::string &nom_piece);
 
 

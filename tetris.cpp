@@ -1,17 +1,16 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
-
 #include "tetris.h"
-
 #include "display.h"
 #include "json.hpp"
-
-
+#include <stdlib.h>
+#include <time.h>
 using json = nlohmann::json;
 using namespace std;
-tetris::tetris(int PlayerValue): PlayerValue(PlayerValue) {}
 
+
+tetris::tetris(int PlayerValue): PlayerValue(PlayerValue) {}
 void tetris::displayPiece(const std::vector<std::vector<int>>& piece) {
     for (const auto& row : piece) {
         for (int cell : row) {
@@ -20,7 +19,6 @@ void tetris::displayPiece(const std::vector<std::vector<int>>& piece) {
         std::cout << std::endl;
     }
 }
-
 std::vector<std::vector<int>> tetris::getPieceTetris(const json& pieces, const std::string& nom_piece) {
     std::vector<std::vector<int>> piece;
 
@@ -38,7 +36,6 @@ std::vector<std::vector<int>> tetris::getPieceTetris(const json& pieces, const s
 
     return piece;
 }
-
 std::vector<std::vector<int>> tetris::getPieceTetrisEasy(const std::string &nom_piece) {
     std::ifstream f("../tetrisFile.json");
     if (!f) {
@@ -63,9 +60,8 @@ std::vector<std::vector<int>> tetris::getPieceTetrisEasy(const std::string &nom_
             } else {
                 std::cerr << "Erreur : La pièce '" << nom_piece << "' n'existe pas dans le JSON.\n";
             }
-
+            f.close();
             return piece;
-
         }
     }catch (const nlohmann::json::parse_error& e) {
         std::cerr << "Erreur de parsing JSON : " << e.what() << std::endl;
@@ -73,7 +69,6 @@ std::vector<std::vector<int>> tetris::getPieceTetrisEasy(const std::string &nom_
         std::cerr << "Erreur de type JSON : " << e.what() << std::endl;
     }
 }
-
 void tetris::loadJson(string nom_piece) {
     // Charger le fichier JSON
     std::ifstream f("../tetrisFile.json");
@@ -100,7 +95,6 @@ void tetris::loadJson(string nom_piece) {
 
     f.close();
 }
-
 std::vector<std::vector<int>> tetris::getRotatePiece(const std::vector<std::vector<int>>& piece) {
     std::vector<std::vector<int>> newPiece;
     for (int i = 0; i < piece[0].size(); ++i) {
@@ -112,7 +106,6 @@ std::vector<std::vector<int>> tetris::getRotatePiece(const std::vector<std::vect
     }
     return newPiece;
 }
-
 std::vector<std::vector<int>> tetris::getFlipPiece(const std::vector<std::vector<int>>& piece) {
     std::vector<std::vector<int>> newPiece;
     for (int i = piece.size() - 1; i >= 0; --i) {
