@@ -15,23 +15,28 @@ int main() {
 
     player d("blue",2,1,20,20);
 
-    tetris test(10);
-    std::cout << "Pièce de base" << std::endl;
-    test.loadJson("Tetris20");
-    std::cout <<"Rotate 90"<< std::endl;
-    test.displayPiece(test.getRotatePiece(test.getPieceTetrisEasy("Tetris20")));
-    std::cout <<"Flip"<< std::endl;
-    test.displayPiece(test.getFlipPiece(test.getPieceTetrisEasy("Tetris20")));
+    player b("green",1,1,30,30);
 
-    std::cout <<"place"<< std::endl;
+    std::vector<player> players;
+    players.push_back(p);
+    players.push_back(d);
+    players.push_back(b);
+
+    tetris test(10);
+    // std::cout << "Pièce de base" << std::endl;
+    // test.loadJson("Tetris20");
+    // std::cout <<"Rotate 90"<< std::endl;
+    // test.displayPiece(test.getRotatePiece(test.getPieceTetrisEasy("Tetris20")));
+    // std::cout <<"Flip"<< std::endl;
+    // test.displayPiece(test.getFlipPiece(test.getPieceTetrisEasy("Tetris20")));
+    //
+    // std::cout <<"place"<< std::endl;
     a.piecePlace(0,0,test.getPieceTetrisEasy("Tetris20"));
-    std::cout <<"Board :"<< std::endl << std::endl;
-    a.displayGrid();
-    std::vector<std::pair<int, std::string>> color ;
-    color = p.setColor();
-    int c = p.getColor();
-    p.returncolor(c,color , "test" );
-    a.boardColor(p);
+    a.piecePlace(0,3,test.getPieceTetrisEasy("Tetris19"));
+    a.piecePlace(1,3,test.getPieceTetrisEasy("Tetris24"));
+    std::cout <<"Board :" << std::endl;
+    p.returncolor(p.getColor(), p.setColor() , p.getName() );
+    a.boardColor(players);
 
 
     return 0;

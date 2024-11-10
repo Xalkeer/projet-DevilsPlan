@@ -49,13 +49,14 @@ void board::piecePlace(int x, int y, std::vector<std::vector<int>> piece) {
         }
     }
 }
-void board::boardColor(player& player){
+void board::boardColor(std::vector<player> players){
     for (int i = 0; i < grid.size(); ++i){
         for (int j = 0; j < grid[i].size(); ++j){
-            std::vector<std::pair<int, std::string>> colors = player.setColor() ;
-            if (player.getColor() >= 0 && player.getColor() < static_cast<int>(colors.size())){
-                if (grid[i][j].GetValue() >= 1 ){
-                    std::cout << colors[player.getColor()].second << grid[i][j].GetValue() << colors[player.getColor()].second << " ";
+            std::vector<std::pair<int, std::string>> colors = players[grid[i][j].GetValue()].setColor() ;
+            if (players[grid[i][j].GetValue()].getColor() >= 0 && players[grid[i][j].GetValue()].getColor() < static_cast<int>(colors.size())){
+                if (grid[i][j].GetValue() >= 1 )
+                {
+                    std::cout << colors[players[grid[i][j].GetValue()-1].getColor()].second << grid[i][j].GetValue() << colors[players[grid[i][j].GetValue()-1].getColor()].second << " ";
                 } else {
                     std::cout << "\e[0m" << grid[i][j].GetValue() << "\e[0m" << " ";
                 }
