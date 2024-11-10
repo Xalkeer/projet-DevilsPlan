@@ -2,6 +2,9 @@
 #include <fstream>
 #include <iostream>
 #include "tetris.h"
+
+#include <random>
+
 #include "display.h"
 #include "json.hpp"
 #include <stdlib.h>
@@ -116,4 +119,42 @@ std::vector<std::vector<int>> tetris::getFlipPiece(const std::vector<std::vector
         newPiece.push_back(row);
     }
     return newPiece;
+}
+
+std::vector<std::string> tetris::generateRandomPieceList(int numberOfPlayers) {
+    // Load the JSON file
+    std::ifstream f("../tetrisFile.json");
+    if (!f) {
+        std::cerr << "Error: Unable to open JSON file\n";
+        return {};
+    }
+
+    nlohmann::json data;
+    f >> data;
+    f.close();
+
+    // Extract piece names
+    std::vector<std::string> availablePieces;
+    if (data.contains("pieces")) {
+        for (auto& piece : data["pieces"].items()) {
+            availablePieces.push_back(piece.key());
+        }
+    } else {
+        std::cerr << "Error: 'pieces' key not found in JSON\n";
+        return {};
+    }
+
+    // Calculate the list size
+    int listSize = static_cast<int>(std::ceil(numberOfPlayers * 10.67));
+    std::vector<std::string> pieceList;
+    std::default_random_engine generator(static_cast<unsigned>(time(0)));
+    std::uniform_int_distribution<int> distribution(0, availablePieces.size() - 1);
+
+    // Generate random list of pieces
+    for (int i = 0; i < listSize; ++i) {
+        int randomIndex = distribution(generator);
+        pieceList.push_back(availablePieces[randomIndex]);
+    }
+
+    return pieceList;
 }
