@@ -1,4 +1,6 @@
 #include <vector>
+
+#include "player.h"
 #include "square.h"
 
 
@@ -18,4 +20,6 @@ public:
     void piecePlace(int x, int y,  std::vector<std::vector<int>> piece, int playerValue);
 
     void howManyGrass(int playerValue);
+
+    void boardColor(std::vector<player> players);
 };
