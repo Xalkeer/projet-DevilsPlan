@@ -19,7 +19,7 @@ void display::initGame() {
     int nbPlayers;
     cout << " ---------------------------------" << endl;
     cout << "Welcome to the Laying Grass" << endl;
-    cout << "Please, choose the number of players (2 to 9) : ";
+    cout << "Please, choose the number of players (2 to 9) : "<< endl;
     cout << " ---------------------------------" << endl;
     while (true) {
         cin >> nbPlayers;
@@ -125,15 +125,14 @@ void display::mainGame(vector<player> players, board& gameBoard) {
     for (int i = 0; i < 2 ; i++ ) {
         for (auto& p : players) {
             cout << " ---------------------------------" << endl;
-            cout << "Player :"<<p.getName() << endl;
             cout << "Next tiles : " << endl;
             for (int i = 1; i < 6; ++i) {
                 Tetris.displayPiece(Tetris.getPieceTetrisEasy(pieceList[i]));
                 cout << " "<<endl;
                 cout << " ---------------------------------" << endl;
             }
-            cout << " ---------------------------------" << endl;
             boardColor(players,gameBoard);
+            cout << "Player : "<<p.getName() << endl;
             cout << "Current tile : " << endl;
             Tetris.displayPiece(Tetris.getPieceTetrisEasy(pieceList[0]));
             cout << " ---------------------------------" << endl;
