@@ -5,15 +5,17 @@
 class square {
 private:
     int value = 0;
+    char turn = ' ';
 
 public:
-    square() = default;
-    explicit square(int val) : value(val) {}
-
-
+    square(int val, char turn) ;
     int GetValue() const;
 
     void SetValue(int val);
+
+    char GetTurn() const;
+
+    void SetTurn(char t);
 };
 
 #endif // SQUARE_H

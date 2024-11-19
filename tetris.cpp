@@ -13,8 +13,11 @@ using json = nlohmann::json;
 using namespace std;
 
 
-tetris::tetris(int PlayerValue): PlayerValue(PlayerValue) {}
+tetris::tetris() = default;
 void tetris::displayPiece(const std::vector<std::vector<int>>& piece) {
+    /*
+     *affichage des pieces dans la console
+     **/
     for (const auto& row : piece) {
         for (int cell : row) {
             std::cout << cell << " ";
@@ -22,7 +25,11 @@ void tetris::displayPiece(const std::vector<std::vector<int>>& piece) {
         std::cout << std::endl;
     }
 }
-std::vector<std::vector<int>> tetris::getPieceTetris(const json& pieces, const std::string& nom_piece) {
+
+
+
+/*
+ *std::vector<std::vector<int>> tetris::getPieceTetris(const json& pieces, const std::string& nom_piece) {
     std::vector<std::vector<int>> piece;
 
     if (pieces.contains(nom_piece)) {
@@ -39,7 +46,12 @@ std::vector<std::vector<int>> tetris::getPieceTetris(const json& pieces, const s
 
     return piece;
 }
+*/
 std::vector<std::vector<int>> tetris::getPieceTetrisEasy(const std::string &nom_piece) {
+    /*
+     * *chargement d'une piece depuis le JSON
+     *affiche la piece si elle existe, sinon affiche une erreur
+     **/
     std::ifstream f("../tetrisFile.json");
     if (!f) {
         std::cerr << "Erreur : Impossible d'ouvrir le fichier JSON\n";
@@ -72,7 +84,8 @@ std::vector<std::vector<int>> tetris::getPieceTetrisEasy(const std::string &nom_
         std::cerr << "Erreur de type JSON : " << e.what() << std::endl;
     }
 }
-void tetris::loadJson(string nom_piece) {
+/*
+ *void tetris::loadJson(string nom_piece) {
     // Charger le fichier JSON
     std::ifstream f("../tetrisFile.json");
     if (!f) {
@@ -98,7 +111,12 @@ void tetris::loadJson(string nom_piece) {
 
     f.close();
 }
+*/
 std::vector<std::vector<int>> tetris::getRotatePiece(const std::vector<std::vector<int>>& piece) {
+    /*
+     *rotation d'une piece
+     *renvoie une nouvelle piece apres rotation
+     **/
     std::vector<std::vector<int>> newPiece;
     for (int i = 0; i < piece[0].size(); ++i) {
         std::vector<int> row;
@@ -110,6 +128,10 @@ std::vector<std::vector<int>> tetris::getRotatePiece(const std::vector<std::vect
     return newPiece;
 }
 std::vector<std::vector<int>> tetris::getFlipPiece(const std::vector<std::vector<int>>& piece) {
+    /*
+     *inversion d'une piece
+     *renvoie une nouvelle piece apres inversion
+     **/
     std::vector<std::vector<int>> newPiece;
     for (int i = piece.size() - 1; i >= 0; --i) {
         std::vector<int> row;
@@ -120,20 +142,20 @@ std::vector<std::vector<int>> tetris::getFlipPiece(const std::vector<std::vector
     }
     return newPiece;
 }
-
-std::vector<std::string> tetris::generateRandomPieceList(int numberOfPlayers) {
-    // Load the JSON file
+vector<string> tetris::generateRandomPieceList(int numberOfPlayers) {
+    /*
+     *generation d'une liste de pieces aleatoires selon le nombre de joueurs
+     *renvoie une liste de pieces
+     **/
     std::ifstream f("../tetrisFile.json");
     if (!f) {
         std::cerr << "Error: Unable to open JSON file\n";
         return {};
     }
-
     nlohmann::json data;
     f >> data;
     f.close();
 
-    // Extract piece names
     std::vector<std::string> availablePieces;
     if (data.contains("pieces")) {
         for (auto& piece : data["pieces"].items()) {
@@ -144,13 +166,11 @@ std::vector<std::string> tetris::generateRandomPieceList(int numberOfPlayers) {
         return {};
     }
 
-    // Calculate the list size
     int listSize = static_cast<int>(std::ceil(numberOfPlayers * 10.67));
     std::vector<std::string> pieceList;
     std::default_random_engine generator(static_cast<unsigned>(time(0)));
     std::uniform_int_distribution<int> distribution(0, availablePieces.size() - 1);
 
-    // Generate random list of pieces
     for (int i = 0; i < listSize; ++i) {
         int randomIndex = distribution(generator);
         pieceList.push_back(availablePieces[randomIndex]);

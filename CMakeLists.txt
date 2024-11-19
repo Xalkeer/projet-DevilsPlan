@@ -5,8 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Projet main.cpp
         player.h
-        board.h
-        board.cpp
         player.cpp
         square.h
         tetris.h
@@ -14,4 +12,6 @@ add_executable(Projet main.cpp
         display.cpp
         tetris.cpp
         json.hpp
-        square.cpp)
+        square.cpp
+        board.h
+        board.cpp)

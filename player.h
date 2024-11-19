@@ -17,13 +17,18 @@ private:
     int tileExchange = 1 ;
     int posX = 0;
     int posY = 0;
+    int playerValue = 0;
+    int turnCount = 0;
 
 
 
 
 public:
-    player(const std::string& name, int color, int tileExchange, int x, int y);
+    player(const std::string& name, int color, int tileExchange, int x, int y, int playerValue, int turnCount);
 
+    int getPlayerValue() const;
+    int getTurnCount() const;
+    void setTurn();
     std::string getName() const;
     int getColor() const;
     int getPosX() const;
@@ -35,7 +40,7 @@ public:
     void setPosition(int x, int y);
 
     void addTileExchange() ;
-    bool useTileExchange() ;
+    void useTileExchange() ;
 
     std::vector<std::pair<int, std::string>> setColor();
     void returncolor(int indexCouleur, const std::vector<std::pair<int, std::string>>& colors, const std::string& texte) ;
