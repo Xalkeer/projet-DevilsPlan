@@ -25,28 +25,6 @@ void tetris::displayPiece(const std::vector<std::vector<int>>& piece) {
         std::cout << std::endl;
     }
 }
-
-
-
-/*
- *std::vector<std::vector<int>> tetris::getPieceTetris(const json& pieces, const std::string& nom_piece) {
-    std::vector<std::vector<int>> piece;
-
-    if (pieces.contains(nom_piece)) {
-        for (const auto& row : pieces[nom_piece]) {
-            std::vector<int> rowVector;
-            for (int cell : row) {
-                rowVector.push_back(cell);
-            }
-            piece.push_back(rowVector);
-        }
-    } else {
-        std::cerr << "Erreur : La pièce '" << nom_piece << "' n'existe pas dans le JSON.\n";
-    }
-
-    return piece;
-}
-*/
 std::vector<std::vector<int>> tetris::getPieceTetrisEasy(const std::string &nom_piece) {
     /*
      * *chargement d'une piece depuis le JSON
@@ -84,34 +62,7 @@ std::vector<std::vector<int>> tetris::getPieceTetrisEasy(const std::string &nom_
         std::cerr << "Erreur de type JSON : " << e.what() << std::endl;
     }
 }
-/*
- *void tetris::loadJson(string nom_piece) {
-    // Charger le fichier JSON
-    std::ifstream f("../tetrisFile.json");
-    if (!f) {
-        std::cerr << "Erreur : Impossible d'ouvrir le fichier JSON\n";
-    }
 
-    try {
-        json data;
-        f >> data;
-        // Vérifier que la clé "pieces" existe
-        if (data.contains("pieces")) {
-            auto pieces = data["pieces"];
-            // afficherPieceTetris(pieces, nom_piece);
-            displayPiece(getPieceTetris(pieces, nom_piece));
-        } else {
-            std::cerr << "Erreur : La clé 'pieces' n'existe pas dans le JSON.\n";
-        }
-    } catch (const nlohmann::json::parse_error& e) {
-        std::cerr << "Erreur de parsing JSON : " << e.what() << std::endl;
-    } catch (const nlohmann::json::type_error& e) {
-        std::cerr << "Erreur de type JSON : " << e.what() << std::endl;
-    }
-
-    f.close();
-}
-*/
 std::vector<std::vector<int>> tetris::getRotatePiece(const std::vector<std::vector<int>>& piece) {
     /*
      *rotation d'une piece
