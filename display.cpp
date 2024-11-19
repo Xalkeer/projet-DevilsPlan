@@ -1,9 +1,7 @@
 #include <iostream>
 #include <thread>
-#include <chrono>2
+#include <chrono>
 #include "display.h"
-
-
 
 using namespace std;
 
@@ -122,7 +120,7 @@ void display::mainGame(vector<player> players, board& gameBoard) {
     cout << " ---------------------------------" << endl;
     int turn = 0;
     tetris Tetris;
-    for (int i = 0; i < 2 ; i++ ) {
+    for (int i = 0; i < 9 ; i++ ) {
         for (auto& p : players) {
             cout << " ---------------------------------" << endl;
             cout << "Next tiles : " << endl;
@@ -138,7 +136,6 @@ void display::mainGame(vector<player> players, board& gameBoard) {
             cout << " ---------------------------------" << endl;
             cout << "Take Tile (1)" << endl;
             cout << "Exchange tile - "<< p.getTileExchange() << " available (2)" << endl;
-            cout << "Display queue (3)" << endl;
             cout << " ---------------------------------" << endl;
             int playerChoice;
             cin >> playerChoice;
@@ -178,19 +175,6 @@ void display::mainGame(vector<player> players, board& gameBoard) {
             }
             else if (playerChoice == 2) {
                 exchangedTile(gameBoard, p,players);
-            }
-            else if (playerChoice == 3) {
-                cout <<"You can now steal a tile from yours opponents" << endl;
-                int x ,y ;
-                cout << "Where do you want to steal a tile from your opponent" << endl;
-                cin >> x >> y;
-                x -= 1;
-                y -= 1;
-                auto test = i + p.getTurnCount();
-                // cout <<p.getTurnCount() << endl;
-                // cout << "test'\n" << test << endl;
-                gameBoard.Robbery(x,y,p.getPlayerValue(),test);
-                p.setTurn();
             }
             else {
                 cout << "Invalid choice" << endl;
@@ -239,7 +223,6 @@ void display::mainGame(vector<player> players, board& gameBoard) {
         }
     }
 }
-// ATTENTION LA MODIFICATION DE LISTE NE CHANGE PAS LE PREMIERE PIECE
 void display::exchangedTile(board& gameBoard,player p,vector<player> players) {
     cout << " ---------------------------------" << endl;
     cout << "Exchange Tile (1)" << endl;
@@ -291,7 +274,6 @@ void display::exchangedTile(board& gameBoard,player p,vector<player> players) {
         exchangedTile(gameBoard, p,players);
     }
 }
-
 void display::tileExchangeList (int x){
     /*
      * déplace une pièce dans la liste à la position choisit par le joueur
@@ -324,7 +306,6 @@ void display::takeTile(board& gameBoard, player p,vector<player> players, int nb
         piece = Tetris.getFlipPiece(piece);
         takeTile(gameBoard, p,players, nbPlayer, piece, turnCount);
     }
-
     else if (playerChoice == 2) {
         piece = Tetris.getRotatePiece(piece);
         takeTile(gameBoard, p,players, nbPlayer, piece, turnCount);

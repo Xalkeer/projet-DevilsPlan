@@ -13,7 +13,6 @@ int player::getPlayerValue() const {
      **/
     return playerValue;
 }
-
 int player::getTurnCount() const {
     std::cout << turnCount << std::endl;
     return turnCount;

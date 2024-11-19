@@ -223,7 +223,6 @@ int board::bonusVerif(int playerValue){
     }
     return result;
 }
-// MODIFIER LE TURN
 void board::tileExchangeStone(int playerValue, bool isFinish, int x, int y){
     /*
      * verifie en cours de jeu si la piece choisit est bien une pierre et la remplace par une case joueur
@@ -236,7 +235,6 @@ void board::tileExchangeStone(int playerValue, bool isFinish, int x, int y){
         grid[x][y].SetValue(playerValue);
     }
 }
-
 void board::Stone (int x, int y){
     /*
      *place une pierre dans une case vide du board

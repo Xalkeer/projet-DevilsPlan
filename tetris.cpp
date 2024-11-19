@@ -126,6 +126,5 @@ vector<string> tetris::generateRandomPieceList(int numberOfPlayers) {
         int randomIndex = distribution(generator);
         pieceList.push_back(availablePieces[randomIndex]);
     }
-
     return pieceList;
 }
